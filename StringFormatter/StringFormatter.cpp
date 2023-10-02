@@ -20,7 +20,7 @@ string trim(const std::string& input, char ch, char ch2)
         --i;
         if (*i != ch && *i != ch2)
             break;
-        *i = '\0';
+        temp.resize(temp.size() - 1);
     }
 
     return temp;
@@ -41,7 +41,7 @@ std::string StringFormatter(string mystr, std::vector<std::pair<std::string, std
 
         for (int i = 0; i < vec.size(); i++)
         {
-            vec[i].first.resize(match.size());
+            
             if (vec[i].first == match)
             {
                 result = regex_replace(str, regexp, vec[i].second, std::regex_constants::format_first_only);
@@ -65,6 +65,7 @@ std::string StringFormatter(string mystr, std::vector<std::pair<std::string, std
 
 int main()
 {
-    std::cout<<StringFormatter("a = {:abrakadabra}, {:baban}", { {":baban", "10"}, {":abrakadabra", "11"} });
+    std::cout << StringFormatter("Hello {:who}, its very {:weather}", { {":who", "Nastya"}, {":weather", "sunny"} }) << std::endl;
+    std::cout << StringFormatter("Hello {:CODEFORWORD1}, its very {:CODEFORWORD2}", { {":CODEFORWORD1", "Nastya"}, {":CODEFORWORD2", "sunny"} });
     return 0;
 }
