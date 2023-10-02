@@ -2,9 +2,7 @@
 #include <vector> 
 #include <regex>
 
-using namespace std;
-
-string trim(const std::string& input, char ch, char ch2)
+std::string trim(const std::string& input, char ch, char ch2)
 {
     std::string temp = input;
 
@@ -26,18 +24,17 @@ string trim(const std::string& input, char ch, char ch2)
     return temp;
 }
 
-std::string StringFormatter(string mystr, std::vector<std::pair<std::string, std::string>> vec)
+std::string StringFormatter(std::string mystr, std::vector<std::pair<std::string, std::string>> vec)
 {
-    int i = 0;
     std::string str = mystr;
-    while(i < 5)
+    while(1)
     {
-        regex regexp("\\{:[a-zA-Z0-9]+\\}");
-        smatch m;
-        regex_search(str, m, regexp);
-        string match;
+        std::regex regexp("\\{:[a-zA-Z0-9]+\\}");
+        std::smatch m;
+        std::regex_search(str, m, regexp);
+        std::string match;
         match = trim(m[0], '{', '}');
-        string result;
+        std::string result;
 
         for (int i = 0; i < vec.size(); i++)
         {
@@ -49,7 +46,6 @@ std::string StringFormatter(string mystr, std::vector<std::pair<std::string, std
         }
 
         str = result;
-        i++;
         regex_search(str, m, regexp);
         if (m.empty())
         {
