@@ -1,0 +1,3 @@
+﻿  StringFormatter.cpp
+C:\Users\38095\source\repos\StringFormatter\StringFormatter\StringFormatter.cpp(62): warning C4715: 'StringFormatter': not all control paths return a value
+  StringFormatter.vcxproj -> C:\Users\38095\source\repos\StringFormatter\x64\Debug\StringFormatter.exe
